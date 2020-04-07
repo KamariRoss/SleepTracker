@@ -1,0 +1,41 @@
+/* Provide sufficient contrast against white background */
+@import './components/design.scss';
+
+html {
+  background-color: $quaternary-color;
+}
+div {
+  background-color: $quaternary-color;
+  color: $quinary-color;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.sleep-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  border-top: solid;
+  width: 100vw;
+
+  .navItem {
+    text-align: center;
+    font-family: $title-font;
+    font-size: 3rem;
+  }
+}

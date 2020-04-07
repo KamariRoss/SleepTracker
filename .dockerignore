@@ -1,0 +1,13 @@
+bin
+obj
+out
+.git
+.vscode
+
+ClientApp/node_modules
+# ignore all markdown files (md) beside all README*.md other than README-secret.md
+*.md
+!README*.md
+README-secret.md
+
+appsettings.Developement.json

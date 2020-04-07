@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/SleepTracker.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "publish",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "publish",
+        "${workspaceFolder}/SleepTracker.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "watch",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "watch",
+        "run",
+        "${workspaceFolder}/SleepTracker.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "git-init",
+      "command": "git",
+      "type": "process",
+      "args": ["init"]
+    },
+    {
+      "label": "git-add-all",
+      "command": "git",
+      "type": "process",
+      "args": ["add", "."]
+    },
+    {
+      "label": "git-first-commit",
+      "command": "git",
+      "type": "process",
+      "args": ["commit", "-am", "'created project!'"]
+    },
+    {
+      "label": "git-set-upstream",
+      "command": "git",
+      "type": "process",
+      "args": ["push", "-u", "origin", "master"]
+    },
+    {
+      "label": "hub-create",
+      "command": "hub",
+      "type": "process",
+      "args": ["create"]
+    },
+    {
+      "label": "create-github",
+      "dependsOn": [
+        "git-init",
+        "hub-create",
+        "git-add-all",
+        "git-first-commit",
+        "git-set-upstream"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": {
+        "owner": "git",
+        "fileLocation": ["relative", "${workspaceRoot}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    }
+  ]
+}
