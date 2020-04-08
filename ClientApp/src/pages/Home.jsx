@@ -2,8 +2,8 @@ import React from 'react'
 
 export function Home() {
   return (
-    <div class="sleep-button">
-      <button>Activate</button>
+    <div class="buttonContainer">
+      <a class="sleepButton">Start Sleep Tracker</a>
     </div>
   )
 }

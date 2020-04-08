@@ -1,0 +1,85 @@
+@import './design.scss';
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  .sleepButton {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: $quinary-color;
+    padding: 4.5rem;
+    border-radius: 1rem;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    font-size: 4rem;
+  }
+  .sleepButton:hover {
+    background: $primary-color;
+    letter-spacing: 0.0625rem;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+  }
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  border-top: solid;
+  width: 100vw;
+
+  .navItem {
+    text-align: center;
+    font-family: $title-font;
+    font-size: 3rem;
+  }
+  .navItem:hover {
+    color: $primary-color;
+    letter-spacing: 1px;
+    -webkit-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.274);
+    -moz-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.089);
+    text-shadow: 5px 40px -10px rgba(165, 120, 120, 0.137);
+    transition: all 0.4s ease 0s;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .buttonContainer {
+    .sleepButton {
+      padding: 2rem;
+      border-radius: 0.5rem;
+      font-size: 2rem;
+    }
+    .sleepButton:hover {
+      letter-spacing: 0.03125rem;
+    }
+  }
+
+  .navBar {
+    .navItem {
+      text-align: center;
+      font-family: $title-font;
+      font-size: 1.5rem;
+    }
+    .navItem:hover {
+      color: $primary-color;
+      letter-spacing: 0.03125rem;
+      -webkit-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.274);
+      -moz-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.089);
+      text-shadow: 5px 40px -10px rgba(165, 120, 120, 0.137);
+      transition: all 0.4s ease 0s;
+    }
+  }
+}
