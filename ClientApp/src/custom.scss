@@ -1,6 +1,9 @@
 /* Provide sufficient contrast against white background */
-@import './components/design.scss';
-@import './components/homepage.scss';
+@import './components/Design.scss';
+@import './components/HomePage.scss';
+@import './components/Activate.scss';
+@import './components/SleepQuality.scss';
+@import './components/AlarmOff.scss';
 html {
   background-color: $quaternary-color;
 }

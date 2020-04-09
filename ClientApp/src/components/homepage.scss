@@ -1,4 +1,4 @@
-@import './design.scss';
+@import './Design.scss';
 .buttonContainer {
   display: flex;
   align-items: center;
@@ -81,12 +81,12 @@
 @media only screen and (max-width: 450px) {
   .buttonContainer {
     .sleepButton {
-      padding: 2rem;
-      border-radius: 0.5rem;
-      font-size: 2rem;
+      padding: 1.6rem;
+      border-radius: 0.3rem;
+      font-size: 1.5rem;
     }
     .sleepButton:hover {
-      letter-spacing: 0.03125rem;
+      letter-spacing: 0.02125rem;
     }
   }
 
