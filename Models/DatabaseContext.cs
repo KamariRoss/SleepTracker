@@ -9,7 +9,7 @@ namespace SleepTracker.Models
     {
 
 
-
+        public DbSet<SleepCounter> SleepCounters { get; set; }
 
         private string ConvertPostConnectionToConnectionString(string connection)
         {
