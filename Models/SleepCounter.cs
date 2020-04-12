@@ -6,8 +6,8 @@ namespace SleepTracker.Models
     {
         public int Id { get; set; }
         public int QualityRating { get; set; }
-        public int TimeStart { get; set; }
-        public int TimeEnd { get; set; }
+        public DateTime TimeStart { get; set; }
+        public DateTime TimeEnd { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
     }
 }
