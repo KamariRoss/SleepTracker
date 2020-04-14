@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace SleepTracker.Migrations
 {
-    public partial class AddedTable : Migration
+    public partial class CreateSleepCounter : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,9 +15,8 @@ namespace SleepTracker.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     QualityRating = table.Column<int>(nullable: false),
-                    TimeStart = table.Column<int>(nullable: false),
-                    TimeEnd = table.Column<int>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false)
+                    TimeStart = table.Column<DateTime>(nullable: false),
+                    TimeEnd = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -26,17 +26,14 @@ namespace SleepTracker.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp without time zone");
-
                     b.Property<int>("QualityRating")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TimeEnd")
-                        .HasColumnType("integer");
+                    b.Property<DateTime?>("TimeEnd")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("TimeStart")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("TimeStart")
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 

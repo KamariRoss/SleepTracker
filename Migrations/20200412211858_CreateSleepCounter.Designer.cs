@@ -10,8 +10,8 @@ using SleepTracker.Models;
 namespace SleepTracker.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200409232535_AddedTable")]
-    partial class AddedTable
+    [Migration("20200412211858_CreateSleepCounter")]
+    partial class CreateSleepCounter
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,17 +28,14 @@ namespace SleepTracker.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp without time zone");
-
                     b.Property<int>("QualityRating")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TimeEnd")
-                        .HasColumnType("integer");
+                    b.Property<DateTime?>("TimeEnd")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("TimeStart")
-                        .HasColumnType("integer");
+                    b.Property<DateTime>("TimeStart")
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 

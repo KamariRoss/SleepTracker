@@ -46,7 +46,10 @@ namespace SleepTracker.Controllers
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSleepCounter(int id, SleepCounter sleepCounter)
+
         {
+
+
             if (id != sleepCounter.Id)
             {
                 return BadRequest();
@@ -77,11 +80,22 @@ namespace SleepTracker.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<SleepCounter>> PostSleepCounter(SleepCounter sleepCounter)
+        public async Task<ActionResult<SleepCounter>> PreSleepCounter()
         {
+            // first request 
+            // Makes a new SleepCounter
+            SleepCounter sleepCounter = new SleepCounter()
+            {
+                // Set the TimeStart to now
+                TimeStart = DateTime.Now,
+                // And make sure the TimeEnd is null
+                TimeEnd = null
+            };
+            // second request make a update field time end
+            // third request update quality
+
             _context.SleepCounters.Add(sleepCounter);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetSleepCounter", new { id = sleepCounter.Id }, sleepCounter);
         }
 

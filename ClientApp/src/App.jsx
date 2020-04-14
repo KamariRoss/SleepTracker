@@ -18,17 +18,17 @@ export default class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/quality" component={SleepQuality} />
-          <Route exact path="/activate" component={Activate} />
+          <Route exact path="/activate/:SleepCounterId" component={Activate} />
           <Route exact path="/off" component={AlarmOff} />
           <Route exact path="/counter" component={HelloWorld} />
           <Route exact path="/typescript" component={HeyWorld} />
           <Route exact path="*" component={NotFound} />
         </Switch>
         <header>
-          <nav class="navBar">
-            <li class="navItem">Sleep</li>
-            <li class="navItem">Stats</li>
-            <li class="navItem">Pref</li>
+          <nav className="navBar">
+            <li className="navItem">Sleep</li>
+            <li className="navItem">Stats</li>
+            <li className="navItem">Pref</li>
           </nav>
         </header>{' '}
       </Layout>
