@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 
 export function Home() {
-  const [sleep, setSleep] = useState({})
   const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
     shouldRedirect: false,
     newSleepInformation: {},
   })
-  array.forEach(element => {})
-  const startTimer = async () => {
-    const resp = axios.post('/api/Sleep', sleep).then(response => {
-      console.log(response.data)
-    })
+  const startTimer = async e => {
+    const resp = await axios.post('/api/Sleep')
+
     if (resp.status === 201) {
       // do something something else
       setWasSuccessfullyCreated({
@@ -21,22 +18,19 @@ export function Home() {
         newSleepInformation: resp.data,
       })
     } else {
-      // do something else here
+      return <Redirect to={`/*/`} />
     }
   }
-  if (wasSuccessfullyCreated.shouldRedirect) {
+  if (wasSuccessfullyCreated.shouldRedirect === true) {
     return (
       <Redirect
-        to={{
-          pathname: `/SleepCounter/${wasSuccessfullyCreated.newSleepInformation.id}`,
-          state: { sleepCounter: wasSuccessfullyCreated.newSleepInformation },
-        }}
+        to={`/activate/${wasSuccessfullyCreated.newSleepInformation.id}`}
       />
     )
   } else {
     return (
-      <div className="buttonContainer">
-        <button className="sleepButton" onClick={startTimer} p>
+      <div class="buttonContainer">
+        <button class="sleepButton" name="startTime" onClick={startTimer}>
           Start Sleep Tracker
         </button>
       </div>

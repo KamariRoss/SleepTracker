@@ -10,7 +10,7 @@ const NotFound = () => {
           <span>🤷‍♀️</span>
         )}
         Not sure how you got here. Do you want to{' '}
-        <a href="" onclick="window.history.go(-1); return false;">
+        <a href="" onClick="window.history.go(-1); return false;">
           go back?
         </a>
       </h2>

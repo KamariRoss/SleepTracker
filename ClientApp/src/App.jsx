@@ -17,7 +17,11 @@ export default class App extends Component {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/quality" component={SleepQuality} />
+          <Route
+            exact
+            path="/quality/:SleepCounterId"
+            component={SleepQuality}
+          />
           <Route exact path="/activate/:SleepCounterId" component={Activate} />
           <Route exact path="/off" component={AlarmOff} />
           <Route exact path="/counter" component={HelloWorld} />
