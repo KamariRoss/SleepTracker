@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom'
 // display
 //
 const Activate = props => {
-  console.log(props)
+  // console.log(props)
   const [sleep, setSleep] = useState({})
 
   const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
@@ -17,7 +17,7 @@ const Activate = props => {
   const sleepId = props.match.params.SleepCounterId
   const displayTimer = async () => {
     const resp2 = await axios.get(`/api/Sleep/` + sleepId)
-    console.log(resp2.data)
+    // console.log(resp2.data)
     setSleep(resp2.data)
   }
 
@@ -27,19 +27,18 @@ const Activate = props => {
 
   const stopTimer = async () => {
     const resp = await axios.put(`/api/Sleep/${sleepId}`)
-    console.log(resp.data)
+    console.log(resp)
 
-    if (resp.status === 201) {
+    if (resp.status === 200) {
       // do something something else
       setWasSuccessfullyCreated({
         shouldRedirect: true,
         newSleepInformation: resp.data,
       })
-    } else {
-      return <Redirect to={`/*/`} />
     }
   }
-  if (wasSuccessfullyCreated.shouldRedirect === true) {
+
+  if (wasSuccessfullyCreated.shouldRedirect) {
     return (
       <Redirect
         to={`/quality/${wasSuccessfullyCreated.newSleepInformation.id}`}
@@ -51,14 +50,16 @@ const Activate = props => {
         <h1 className="activateTitle">
           Sleep in Progress for sleep number {props.match.params.SleepCounterId}
         </h1>
-        <h3>{sleep.timeStart}</h3>
+        <h3>
+          Time went to bed {''}
+          {sleep.timeStart}
+        </h3>
         <h3 className="activateTime">Alarm 6:00a.m.</h3>
         <h3 className="activateTime"></h3>
-        <Link to="/quality">
-          <button className="stopButton" onClick={stopTimer}>
-            <h2 className="activateStopButton">Stop</h2>
-          </button>
-        </Link>
+
+        <button className="stopButton" onClick={stopTimer}>
+          <h2 className="activateStopButton">Stop</h2>
+        </button>
       </div>
     )
   }

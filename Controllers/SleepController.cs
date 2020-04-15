@@ -40,36 +40,63 @@ namespace SleepTracker.Controllers
 
             return sleepCounter;
         }
-        // GET: api/Sleep/5
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<SleepCounter>> GetSleepCounter(int id)
-        // {
-        //     var sleepCounter = await _context.SleepCounters.FindAsync(id);
 
-        //     if (sleepCounter == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     return sleepCounter;
-        // }
         // PUT: api/Sleep/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutSleepCounter(int id)
+        {
+            // Find the sleep counter with this id — this will give us a SleepCounter or a null
+            var sleepCounter = await _context.SleepCounters.FindAsync(id);
+
+            // If we get a null, return NotFound()
+            if (sleepCounter == null)
+            {
+                return NotFound();
+            }
+
+            // Otherwise, set the value of the found sleepCounter TimeEnd to the current time
+            _context.Entry(sleepCounter).State = EntityState.Modified;
+            sleepCounter.TimeEnd = DateTime.Now;
+
+            // Save that sleepCounter
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SleepCounterExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            // Return either NoContent() or Ok(sleepCounter) — whichever feels best to you.
+            return Ok(sleepCounter);
+        }
+
+        // PUT: api/Sleep/5/quality
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutSleepCounter(int id, SleepCounter sleepCounter)
+        [HttpPut("{id}/quality")]
+        public async Task<IActionResult> PutqualitySleepCounter(int id, SleepCounter sleepCounter)
 
         {
-            //find id 
-            //update sleep end
-            // save data
+            // Find the sleep counter with this id — this will give us a SleepCounter or a null
+            sleepCounter.Id = id;
+            // If we get a null, return NotFound()
+            // Otherwise, set the value of the found sleepCounter TimeEnd to the current time
+            // Save that sleepCounter
+            // Return either NoContent() or Ok(sleepCounter) — whichever feels best to you.
 
             if (id != sleepCounter.Id)
             {
                 return BadRequest();
             }
-
-            _context.Entry(sleepCounter).State = EntityState.Modified;
 
             try
             {
@@ -89,39 +116,6 @@ namespace SleepTracker.Controllers
 
             return NoContent();
         }
-        // [HttpPut("/{id}")]
-        // public async Task<IActionResult> PutqualitySleepCounter(int id, SleepCounter sleepCounter)
-
-        // {
-        //     //find id 
-        //     //update sleep end
-        //     // save data
-
-        //     if (id != sleepCounter.Id)
-        //     {
-        //         return BadRequest();
-        //     }
-
-        //     _context.Entry(sleepCounter).State = EntityState.Modified;
-
-        //     try
-        //     {
-        //         await _context.SaveChangesAsync();
-        //     }
-        //     catch (DbUpdateConcurrencyException)
-        //     {
-        //         if (!SleepCounterExists(id))
-        //         {
-        //             return NotFound();
-        //         }
-        //         else
-        //         {
-        //             throw;
-        //         }
-        //     }
-
-        //     return NoContent();
-        // }
 
         // POST: api/Sleep
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
