@@ -29,7 +29,7 @@ namespace SleepTracker.Controllers
 
         // GET: api/Sleep/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SleepCounter>> GetSleepCounter(int id)
+        public async Task<ActionResult<SleepCounter>> Get2SleepCounter(int id)
         {
             var sleepCounter = await _context.SleepCounters.FindAsync(id);
 
@@ -40,7 +40,19 @@ namespace SleepTracker.Controllers
 
             return sleepCounter;
         }
+        // GET: api/Sleep/5
+        // [HttpGet("{id}")]
+        // public async Task<ActionResult<SleepCounter>> GetSleepCounter(int id)
+        // {
+        //     var sleepCounter = await _context.SleepCounters.FindAsync(id);
 
+        //     if (sleepCounter == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     return sleepCounter;
+        // }
         // PUT: api/Sleep/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -48,7 +60,9 @@ namespace SleepTracker.Controllers
         public async Task<IActionResult> PutSleepCounter(int id, SleepCounter sleepCounter)
 
         {
-
+            //find id 
+            //update sleep end
+            // save data
 
             if (id != sleepCounter.Id)
             {
@@ -75,6 +89,39 @@ namespace SleepTracker.Controllers
 
             return NoContent();
         }
+        // [HttpPut("/{id}")]
+        // public async Task<IActionResult> PutqualitySleepCounter(int id, SleepCounter sleepCounter)
+
+        // {
+        //     //find id 
+        //     //update sleep end
+        //     // save data
+
+        //     if (id != sleepCounter.Id)
+        //     {
+        //         return BadRequest();
+        //     }
+
+        //     _context.Entry(sleepCounter).State = EntityState.Modified;
+
+        //     try
+        //     {
+        //         await _context.SaveChangesAsync();
+        //     }
+        //     catch (DbUpdateConcurrencyException)
+        //     {
+        //         if (!SleepCounterExists(id))
+        //         {
+        //             return NotFound();
+        //         }
+        //         else
+        //         {
+        //             throw;
+        //         }
+        //     }
+
+        //     return NoContent();
+        // }
 
         // POST: api/Sleep
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for

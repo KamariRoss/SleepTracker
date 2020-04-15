@@ -10,6 +10,7 @@ export function Home() {
   })
   const startTimer = async e => {
     const resp = await axios.post('/api/Sleep')
+    console.log(resp.data)
 
     if (resp.status === 201) {
       // do something something else
@@ -30,7 +31,7 @@ export function Home() {
   } else {
     return (
       <div class="buttonContainer">
-        <button class="sleepButton" name="startTime" onClick={startTimer}>
+        <button class="sleepButton" onClick={startTimer}>
           Start Sleep Tracker
         </button>
       </div>
