@@ -6,8 +6,8 @@ import { Redirect } from 'react-router-dom'
 // display
 //
 const Activate = props => {
-  // console.log(props)
-  const [display, setDisplay] = useState({})
+  console.log(props)
+  const [sleep, setSleep] = useState({})
 
   const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
     shouldRedirect: false,
@@ -18,6 +18,7 @@ const Activate = props => {
   const displayTimer = async () => {
     const resp2 = await axios.get(`/api/Sleep/` + sleepId)
     console.log(resp2.data)
+    setSleep(resp2.data)
   }
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const Activate = props => {
         <h1 className="activateTitle">
           Sleep in Progress for sleep number {props.match.params.SleepCounterId}
         </h1>
-        <h3>{}</h3>
+        <h3>{sleep.timeStart}</h3>
         <h3 className="activateTime">Alarm 6:00a.m.</h3>
         <h3 className="activateTime"></h3>
         <Link to="/quality">
