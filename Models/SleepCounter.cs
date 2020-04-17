@@ -8,5 +8,6 @@ namespace SleepTracker.Models
         public int QualityRating { get; set; }
         public DateTime TimeStart { get; set; }
         public DateTime? TimeEnd { get; set; }
+
     }
 }

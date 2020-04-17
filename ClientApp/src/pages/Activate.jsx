@@ -6,18 +6,18 @@ import { Redirect } from 'react-router-dom'
 // display
 //
 const Activate = props => {
-  // console.log(props)
+  console.log(props)
   const [sleep, setSleep] = useState({})
 
   const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
     shouldRedirect: false,
-    newSleepInformation: {},
+    sleepInformation: {},
   })
 
   const sleepId = props.match.params.SleepCounterId
   const displayTimer = async () => {
     const resp2 = await axios.get(`/api/Sleep/` + sleepId)
-    // console.log(resp2.data)
+    console.log(resp2.data)
     setSleep(resp2.data)
   }
 
@@ -33,16 +33,14 @@ const Activate = props => {
       // do something something else
       setWasSuccessfullyCreated({
         shouldRedirect: true,
-        newSleepInformation: resp.data,
+        sleepInformation: resp.data,
       })
     }
   }
 
   if (wasSuccessfullyCreated.shouldRedirect) {
     return (
-      <Redirect
-        to={`/quality/${wasSuccessfullyCreated.newSleepInformation.id}`}
-      />
+      <Redirect to={`/quality/${wasSuccessfullyCreated.sleepInformation.id}`} />
     )
   } else {
     return (

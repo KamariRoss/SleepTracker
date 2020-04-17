@@ -19,10 +19,9 @@ export function Home() {
         newSleepInformation: resp.data,
       })
     } else {
-      return <Redirect to={`/*/`} />
     }
   }
-  if (wasSuccessfullyCreated.shouldRedirect === true) {
+  if (wasSuccessfullyCreated.shouldRedirect) {
     return (
       <Redirect
         to={`/activate/${wasSuccessfullyCreated.newSleepInformation.id}`}
@@ -30,8 +29,8 @@ export function Home() {
     )
   } else {
     return (
-      <div class="buttonContainer">
-        <button class="sleepButton" onClick={startTimer}>
+      <div className="buttonContainer">
+        <button className="sleepButton" onClick={startTimer}>
           Start Sleep Tracker
         </button>
       </div>

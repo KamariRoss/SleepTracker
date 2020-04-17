@@ -79,25 +79,38 @@ namespace SleepTracker.Controllers
             return Ok(sleepCounter);
         }
 
+
         // PUT: api/Sleep/5/quality
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        //
+        // This takes two inputs, the first is the "ID" in our route helper below (e.g. "{id}/quality")
+        // and the second is the Object/Class that receives the BODY of the request. In this case
+        // our SleepCounter. We are, in this case, only sending over the QualityRating of a
+        // SleepCounter.
         [HttpPut("{id}/quality")]
-        public async Task<IActionResult> PutqualitySleepCounter(int id, SleepCounter sleepCounter)
-
+        public async Task<IActionResult> PutQualitySleepCounter(int id, SleepCounter sleepCounterFromTheClient)
         {
-            // Find the sleep counter with this id — this will give us a SleepCounter or a null
-            sleepCounter.Id = id;
-            // If we get a null, return NotFound()
-            // Otherwise, set the value of the found sleepCounter TimeEnd to the current time
-            // Save that sleepCounter
-            // Return either NoContent() or Ok(sleepCounter) — whichever feels best to you.
+            // Log what we got from the client
+            Console.WriteLine($"Hey, got a {sleepCounterFromTheClient.QualityRating} from the client.");
 
-            if (id != sleepCounter.Id)
+            // Find the sleep counter with this id — this will give us a SleepCounter or a null
+            var sleepCounterFromTheDatabase = await _context.SleepCounters.FindAsync(id);
+
+            // If we get a null, return NotFound()
+            if (sleepCounterFromTheDatabase == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
+            // Otherwise, set the value of the found sleepCounter QualityRating to the sleep score
+            _context.Entry(sleepCounterFromTheDatabase).State = EntityState.Modified;
+
+            // Pull out the qualityRating from the object we received from the client
+            // and assign that to the object we got from the database. (e.g. copying
+            // the quality rating from the client input to what we are going to update
+            // in the database)
+            sleepCounterFromTheDatabase.QualityRating = sleepCounterFromTheClient.QualityRating;
+
+            // Save that sleepCounter
             try
             {
                 await _context.SaveChangesAsync();
@@ -114,7 +127,8 @@ namespace SleepTracker.Controllers
                 }
             }
 
-            return NoContent();
+            // Return either NoContent() or Ok(sleepCounter) — whichever feels best to you.
+            return Ok(sleepCounterFromTheDatabase);
         }
 
         // POST: api/Sleep
