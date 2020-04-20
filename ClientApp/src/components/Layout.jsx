@@ -3,9 +3,5 @@ import { Container } from 'reactstrap'
 import Navbar from './NavBar'
 
 export function Layout(props) {
-  return (
-    <div>
-      <Container>{props.children}</Container>
-    </div>
-  )
+  return <div>{props.children}</div>
 }
