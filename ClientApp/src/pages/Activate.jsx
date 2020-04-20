@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import Navbar from '../components/NavBar'
 
 // display
 //
@@ -16,9 +17,9 @@ const Activate = props => {
 
   const sleepId = props.match.params.SleepCounterId
   const displayTimer = async () => {
-    const resp2 = await axios.get(`/api/Sleep/` + sleepId)
-    console.log(resp2.data)
-    setSleep(resp2.data)
+    const response = await axios.get(`/api/Sleep/` + sleepId)
+    console.log(response.data)
+    setSleep(response.data)
   }
 
   useEffect(() => {
@@ -26,14 +27,14 @@ const Activate = props => {
   }, [])
 
   const stopTimer = async () => {
-    const resp = await axios.put(`/api/Sleep/${sleepId}`)
-    console.log(resp)
+    const response = await axios.put(`/api/Sleep/${sleepId}`)
+    console.log(response.data)
 
-    if (resp.status === 200) {
+    if (response.status === 200) {
       // do something something else
       setWasSuccessfullyCreated({
         shouldRedirect: true,
-        sleepInformation: resp.data,
+        sleepInformation: response.data,
       })
     }
   }
@@ -62,4 +63,5 @@ const Activate = props => {
     )
   }
 }
+
 export default Activate

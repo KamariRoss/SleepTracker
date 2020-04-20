@@ -3,13 +3,21 @@
 @import './components/HomePage.scss';
 @import './components/Activate.scss';
 @import './components/SleepQuality.scss';
-@import './components/AlarmOff.scss';
 html {
   background-color: $quaternary-color;
+  min-height: 100vh;
+  min-width: 100vw;
 }
+
 div {
   background-color: $quaternary-color;
   color: $quinary-color;
   min-height: 100vh;
   min-width: 100vw;
+}
+.container {
+  padding: 0;
+}
+.insertNavBar {
+  align-self: flex-end;
 }

@@ -7,7 +7,7 @@ import HeyWorld from './pages/_template/HeyWorld'
 import NotFound from './pages/NotFound'
 import SleepQuality from './pages/SleepQuality'
 import Activate from './pages/Activate'
-import AlarmOff from './pages/AlarmOff'
+import Stats from './pages/Stats'
 import './custom.scss'
 export default class App extends Component {
   static displayName = App.name
@@ -23,18 +23,11 @@ export default class App extends Component {
             component={SleepQuality}
           />
           <Route exact path="/activate/:SleepCounterId" component={Activate} />
-          <Route exact path="/off" component={AlarmOff} />
+          <Route exact path="/stats" component={Stats} />
           <Route exact path="/counter" component={HelloWorld} />
           <Route exact path="/typescript" component={HeyWorld} />
           <Route exact path="*" component={NotFound} />
         </Switch>
-        <header>
-          <nav className="navBar">
-            <li className="navItem">Sleep</li>
-            <li className="navItem">Stats</li>
-            <li className="navItem">Pref</li>
-          </nav>
-        </header>{' '}
       </Layout>
     )
   }

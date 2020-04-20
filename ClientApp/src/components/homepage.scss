@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   .sleepButton {
     display: flex;
     justify-content: space-evenly;
@@ -33,28 +33,30 @@
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+.navigation {
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    list-style: none;
+    border-top: solid;
+    width: 100vw;
 
-.navBar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  list-style: none;
-  border-top: solid;
-  width: 100vw;
-
-  .navItem {
-    text-align: center;
-    font-family: $title-font;
-    font-size: 3rem;
-  }
-  .navItem:hover {
-    color: $primary-color;
-    letter-spacing: 0.0625rem;
-    -webkit-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.274);
-    -moz-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.089);
-    text-shadow: 5px 40px -10px rgba(165, 120, 120, 0.137);
-    transition: all 0.4s ease 0s;
+    .navItem {
+      text-align: center;
+      font-family: $title-font;
+      font-size: 4rem;
+      color: $quinary-color;
+    }
+    .navItem:hover {
+      color: $primary-color;
+      letter-spacing: 0.0625rem;
+      -webkit-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.274);
+      -moz-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.089);
+      text-shadow: 5px 40px -10px rgba(165, 120, 120, 0.137);
+      transition: all 0.4s ease 0s;
+    }
   }
 }
 @media only screen and (max-width: 800px) {
@@ -69,12 +71,15 @@
       letter-spacing: 0.0525rem;
     }
   }
-  .navBar {
-    .navItem {
-      font-size: 2.5rem;
-    }
-    .navItem:hover {
-      letter-spacing: 0.0525rem;
+  .navigation {
+    padding-top: 15rem;
+    .navBar {
+      .navItem {
+        font-size: 2.5rem;
+      }
+      .navItem:hover {
+        letter-spacing: 0.0525rem;
+      }
     }
   }
 }
@@ -89,20 +94,23 @@
       letter-spacing: 0.02125rem;
     }
   }
-
-  .navBar {
-    .navItem {
-      text-align: center;
-      font-family: $title-font;
-      font-size: 1.5rem;
-    }
-    .navItem:hover {
-      color: $primary-color;
-      letter-spacing: 0.03125rem;
-      -webkit-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.274);
-      -moz-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.089);
-      text-shadow: 5px 40px -10px rgba(165, 120, 120, 0.137);
-      transition: all 0.4s ease 0s;
+  .navigation {
+    display: flex;
+    padding-top: 20rem;
+    .navBar {
+      .navItem {
+        text-align: center;
+        font-family: $title-font;
+        font-size: 1.5rem;
+      }
+      .navItem:hover {
+        color: $primary-color;
+        letter-spacing: 0.03125rem;
+        -webkit-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.274);
+        -moz-text-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.089);
+        text-shadow: 5px 40px -10px rgba(165, 120, 120, 0.137);
+        transition: all 0.4s ease 0s;
+      }
     }
   }
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
+import Navbar from '../components/NavBar'
 
 export function Home() {
   const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
@@ -29,11 +30,18 @@ export function Home() {
     )
   } else {
     return (
-      <div className="buttonContainer">
-        <button className="sleepButton" onClick={startTimer}>
-          Start Sleep Tracker
-        </button>
-      </div>
+      <>
+        <div className="buttonContainer">
+          <section>
+            <button className="sleepButton" onClick={startTimer}>
+              Start Sleep Tracker
+            </button>
+          </section>
+        </div>
+        <section className="insertNavBar">
+          <Navbar />
+        </section>
+      </>
     )
   }
 }
