@@ -4,18 +4,26 @@ import axios from 'axios'
 import '../custom.scss'
 
 const StatsProp = props => {
-  const [sleep, setSleep] = useState({})
-  //   const sleepId = props.match.params.SleepCounterId
+  const [quality, setQuality] = useState({})
 
   const displayQuality = async () => {
-    const response = await axios.get(`/api/Sleep/` + 70)
+    const response = await axios.get(`/api/Sleep`)
     console.log(response.data)
-    setSleep(response.data)
+    setQuality(response.data)
   }
+
+  useEffect(() => {
+    displayQuality()
+  }, [])
+
+  //   useEffect(() => {
+  //     qualityId()
+  //   }, [])
+
   return (
-    <div>
-      <h1>{sleep.QualityRating}</h1>
-    </div>
+    <section>
+      <h1>{quality.id}</h1>
+    </section>
   )
 }
 
