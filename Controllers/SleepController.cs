@@ -27,6 +27,16 @@ namespace SleepTracker.Controllers
             return await _context.SleepCounters.ToListAsync();
         }
 
+        [HttpGet("thisweek")]
+        public async Task<ActionResult<IEnumerable<SleepCounter>>> GetSleepCountersForThisWeek()
+        {
+            // TODO, Add a `Where` statement to limit which SleepCounters we return
+            //Where the past seven days including today
+            // The days have to be equal to or less than six days old
+            // Where(sleepCounter => sleepCounter.TimeStart(e=>e =< 6 days from  Datetime.Now))
+            return await _context.SleepCounters.ToListAsync();
+        }
+
         // GET: api/Sleep/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SleepCounter>> Get2SleepCounter(int id)
