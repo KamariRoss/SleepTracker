@@ -11,14 +11,6 @@ const SleepQuality = props => {
     shouldRedirect: false,
     sleepInformation: {},
   })
-  // const getSleepStats = async () => {
-  //   const response = await axios.get(`/api/Sleep/${sleepId}`)
-  //   console.log(response.data)
-  // }
-
-  // useEffect(() => {
-  //   getSleepStats()
-  // }, [])
 
   const setQuality = async qualityRating => {
     // Make an object that has the same keys as the SleepCounter CSharp Class in `SleepCounter.cs`

@@ -1,0 +1,19 @@
+@import './Design.scss';
+.displaySleepStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: center;
+  .sleepDayQuality {
+    .displaySleepTextInfo {
+      .sleepDisplayListItems {
+        .titleName {
+          font-family: $title-font;
+        }
+        .sleepData {
+          font-family: $word-font;
+        }
+      }
+    }
+  }
+}

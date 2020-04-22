@@ -3,6 +3,7 @@
 @import './components/HomePage.scss';
 @import './components/Activate.scss';
 @import './components/SleepQuality.scss';
+@import './components/StatsDisplay.scss';
 html {
   background-color: $quaternary-color;
   min-height: 100vh;
@@ -18,6 +19,6 @@ div {
 .container {
   padding: 0;
 }
-.insertNavBar {
-  align-self: flex-end;
-}
+// .insertNavBar {
+//   align-self: flex-end;
+// }

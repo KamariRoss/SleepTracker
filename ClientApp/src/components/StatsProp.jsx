@@ -48,16 +48,40 @@ const StatsProp = props => {
   // average sleep quality rating method
 
   return (
-    <section>
-      <h1>There are {sleeps.length} sleeps to look at</h1>
-      <ul>
-        {/* Use map to turn a list (array) of sleeps into a list of <li> */}
+    <section className="displaySleepStats">
+      {/* <h1>There are {sleeps.length} sleeps to look at</h1> */}
+      <section className="sleepDayQuality">
+        <h2>Monday</h2>
+        <section className="displaySleepTextInfo">
+          <section className="sleepDisplayListItems">
+            <h3 className="titleName">Sleep Quality</h3>
+            <h4 className="sleepData">3/5</h4>
+            <h3 className="titleName">Hours Slept</h3>
+            <h4 className="sleepData">5</h4>
+          </section>
+          <section className="sleepDisplayListItems">
+            <h3 className="titleName">Bed Time</h3>
+            <h4 className="sleepData">17:00pm</h4>
+            <h3 className="titleName">Wake up Time</h3>
+            <h4 className="sleepData">5:00am</h4>
+          </section>
+        </section>
+      </section>
+
+      {/* <ul>
+        Use map to turn a list (array) of sleeps into a list of <li>
         {sleeps.map(sleep => (
-          <li>
+          <li className="statspage">
             {convertQualityRatingNumberToDescription(sleep.qualityRating)}
           </li>
         ))}
-      </ul>
+        {sleeps.map(sleep => (
+          <li className="statspage">{sleep.timeStart}</li>
+        ))}
+        {sleeps.map(sleep => (
+          <li className="statspage">{sleep.timeEnd}</li>
+        ))}
+      </ul> */}
     </section>
   )
 }
