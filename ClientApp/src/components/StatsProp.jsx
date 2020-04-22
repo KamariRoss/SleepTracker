@@ -49,215 +49,43 @@ const StatsProp = props => {
 
   return (
     <section className="displaySleepStats">
-      {/* <h1>There are {sleeps.length} sleeps to look at</h1> */}
+      <h1>There are {sleeps.length} sleeps to look at</h1>
+      <h2> Here is your current weekly progress</h2>
       <section className="row">
-        <section className="sleepStatsDay">
-          <section className="sleepStatsTitle">
-            <h3 className="sleepStatsTitleDay">Day 1</h3>
-            {'  '}
-            <h3 className="sleepStatsTitleDayName">Monday</h3>
-          </section>
-          <section className="displaySleepStatsTextInfo">
-            <section className="sleepDisplayListItems">
-              <section>
-                <h5 className="titleName">Sleep Quality</h5>
-                <p className="sleepData">3/5</p>
-              </section>
-              <section>
-                <h5 className="titleName">Hours Slept</h5>
-                <p className="sleepData">5</p>
-              </section>
+        {sleeps.map((sleep, index) => (
+          <section className="sleepStatsDay">
+            <section className="sleepStatsTitle">
+              <h3 className="sleepStatsTitleDay">Day {index + 1}</h3>
+              {'  '}
+              <h3 className="sleepStatsTitleDayName">{sleep.timeStart}</h3>
             </section>
-            <section className="sleepDisplayListItemsTwo">
-              <section>
-                <h5 className="titleName">Bed Time</h5>
-                <p className="sleepData">17:00pm</p>
+            <section className="displaySleepStatsTextInfo">
+              <section className="sleepDisplayListItems">
+                <section>
+                  <h5 className="titleName">Sleep Quality</h5>
+                  <p className="sleepData">{sleep.qualityRating}/5</p>
+                </section>
+                <section>
+                  <h5 className="titleName">Hours Slept</h5>
+                  <p className="sleepData">{sleep.hoursSlept}</p>
+                </section>
               </section>
-              <section>
-                <h5 className="titleName">Wake up Time</h5>
-                <p className="sleepData">5:00am</p>
-              </section>
-            </section>
-          </section>
-        </section>
-        <section className="sleepStatsDay">
-          <section className="sleepStatsTitle">
-            <h3 className="sleepStatsTitleDay">Day 2</h3>
-            <h3 className="sleepStatsTitleDayName">Tuesday</h3>
-          </section>
-          <section className="displaySleepStatsTextInfo">
-            <section className="sleepDisplayListItems">
-              <section>
-                <h5 className="titleName">Sleep Quality</h5>
-                <p className="sleepData">3/5</p>
-              </section>
-              <section>
-                <h5 className="titleName">Hours Slept</h5>
-                <p className="sleepData">5</p>
-              </section>
-            </section>
-            <section className="sleepDisplayListItemsTwo">
-              <section>
-                <h5 className="titleName">Bed Time</h5>
-                <p className="sleepData">17:00pm</p>
-              </section>
-              <section>
-                <h5 className="titleName">Wake up Time</h5>
-                <p className="sleepData">5:00am</p>
+              <section className="sleepDisplayListItemsTwo">
+                <section>
+                  <h5 className="titleName">Bed Time</h5>
+                  <p className="sleepData">{sleep.timeStart}</p>
+                </section>
+                <section>
+                  <h5 className="titleName">Wake up Time</h5>
+                  <p className="sleepData">{sleep.timeEnd}</p>
+                </section>
               </section>
             </section>
           </section>
-        </section>
+        ))}
       </section>
-      <section className="row">
-        <section className="sleepStatsDay">
-          <section className="sleepStatsTitle">
-            <h3 className="sleepStatsTitleDay">Day 3</h3>
-            <h3 className="sleepStatsTitleDayName">Wednesday</h3>
-          </section>
-          <section className="displaySleepStatsTextInfo">
-            <section className="sleepDisplayListItems">
-              <section>
-                <h5 className="titleName">Sleep Quality</h5>
-                <p className="sleepData">3/5</p>
-              </section>
-              <section>
-                <h5 className="titleName">Hours Slept</h5>
-                <p className="sleepData">5</p>
-              </section>
-            </section>
-            <section className="sleepDisplayListItemsTwo">
-              <section>
-                <h5 className="titleName">Bed Time</h5>
-                <p className="sleepData">17:00pm</p>
-              </section>
-              <section>
-                <h5 className="titleName">Wake up Time</h5>
-                <p className="sleepData">5:00am</p>
-              </section>
-            </section>
-          </section>
-        </section>
-        <section className="sleepStatsDay">
-          <section className="sleepStatsTitle">
-            <h3 className="sleepStatsTitleDay">Day 4</h3>
-            <h3 className="sleepStatsTitleDayName">Thursday</h3>
-          </section>
-          <section className="displaySleepStatsTextInfo">
-            <section className="sleepDisplayListItems">
-              <section>
-                <h5 className="titleName">Sleep Quality</h5>
-                <p className="sleepData">3/5</p>
-              </section>
-              <section>
-                <h5 className="titleName">Hours Slept</h5>
-                <p className="sleepData">5</p>
-              </section>
-            </section>
-            <section className="sleepDisplayListItemsTwo">
-              <section>
-                <h5 className="titleName">Bed Time</h5>
-                <p className="sleepData">17:00pm</p>
-              </section>
-              <section>
-                <h5 className="titleName">Wake up Time</h5>
-                <p className="sleepData">5:00am</p>
-              </section>
-            </section>
-          </section>
-        </section>
-      </section>
-      <section className="row">
-        <section className="sleepStatsDay">
-          <section className="sleepStatsTitle">
-            <h3 className="sleepStatsTitleDay">Day 5</h3>
-            <h3 className="sleepStatsTitleDayName">Friday</h3>
-          </section>
-          <section className="displaySleepStatsTextInfo">
-            <section className="sleepDisplayListItems">
-              <section>
-                <h5 className="titleName">Sleep Quality</h5>
-                <p className="sleepData">3/5</p>
-              </section>
-              <section>
-                <h5 className="titleName">Hours Slept</h5>
-                <p className="sleepData">5</p>
-              </section>
-            </section>
-            <section className="sleepDisplayListItemsTwo">
-              <section>
-                <h5 className="titleName">Bed Time</h5>
-                <p className="sleepData">17:00pm</p>
-              </section>
-              <section>
-                <h5 className="titleName">Wake up Time</h5>
-                <p className="sleepData">5:00am</p>
-              </section>
-            </section>
-          </section>
-        </section>
-        <section className="sleepStatsDay">
-          <section className="sleepStatsTitle">
-            <h3 className="sleepStatsTitleDay">Day 6</h3>
-            <h3 className="sleepStatsTitleDayName">Saturday</h3>
-          </section>
-          <section className="displaySleepStatsTextInfo">
-            <section className="sleepDisplayListItems">
-              <section>
-                <h5 className="titleName">Sleep Quality</h5>
-                <p className="sleepData">3/5</p>
-              </section>
-              <section>
-                <h5 className="titleName">Hours Slept</h5>
-                <p className="sleepData">5</p>
-              </section>
-            </section>
-            <section className="sleepDisplayListItemsTwo">
-              <section>
-                <h5 className="titleName">Bed Time</h5>
-                <p className="sleepData">17:00pm</p>
-              </section>
-              <section>
-                <h5 className="titleName">Wake up Time</h5>
-                <p className="sleepData">5:00am</p>
-              </section>
-            </section>
-          </section>
-        </section>
-      </section>
-      <section className="row">
-        <section className="sleepStatsDay">
-          <section className="sleepStatsTitle">
-            <h3 className="sleepStatsTitleDay">Day 7</h3>
-            <h3 className="sleepStatsTitleDayName">Saturday</h3>
-          </section>
-          <section className="displaySleepStatsTextInfo">
-            <section className="sleepDisplayListItems">
-              <section>
-                <h5 className="titleName">Sleep Quality</h5>
-                <p className="sleepData">3/5</p>
-              </section>
-              <section>
-                <h5 className="titleName">Hours Slept</h5>
-                <p className="sleepData">5</p>
-              </section>
-            </section>
-            <section className="sleepDisplayListItemsTwo">
-              <section>
-                <h5 className="titleName">Bed Time</h5>
-                <p className="sleepData">17:00pm</p>
-              </section>
-              <section>
-                <h5 className="titleName">Wake up Time</h5>
-                <p className="sleepData">5:00am</p>
-              </section>
-            </section>
-          </section>
-        </section>
-      </section>
-
       {/* <ul>
-        Use map to turn a list (array) of sleeps into a list of <li>
+        Use map to turn a list (array) of sleeps into a list of
         {sleeps.map(sleep => (
           <li className="statspage">
             {convertQualityRatingNumberToDescription(sleep.qualityRating)}

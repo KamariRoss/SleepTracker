@@ -7,10 +7,9 @@ const Stats = () => {
   return (
     <>
       <div>
-        <h1>Your Weekly Progress</h1>
         <StatsProp />
-        <section>This is the graph</section>
-        <section>This is the stat averages</section>
+        {/* <section>This is the graph</section>
+        <section>This is the stat averages</section> */}
       </div>
       <NavBar />
     </>
