@@ -1,19 +1,105 @@
 @import './Design.scss';
 .displaySleepStats {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  flex-direction: center;
-  .sleepDayQuality {
-    .displaySleepTextInfo {
-      .sleepDisplayListItems {
-        .titleName {
-          font-family: $title-font;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .sleepStatsDay {
+      border: solid;
+      margin: 1rem;
+      padding: 0.2rem;
+      .sleepStatsTitle {
+        display: flex;
+        border-bottom: solid;
+        justify-content: space-evenly;
+        .sleepStatsTitleDayName {
+          color: $primary-color;
         }
-        .sleepData {
-          font-family: $word-font;
+      }
+      .displaySleepStatsTextInfo {
+        display: flex;
+        font-style: $title-font;
+        .sleepDisplayListItems {
+          border-right: solid;
+          text-align: center;
+          section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .titleName {
+              font-style: $title-font;
+              padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+            }
+            .sleepData {
+              font-size: 1rem;
+              font-style: $word-font;
+              color: $primary-color;
+            }
+          }
+        }
+        .sleepDisplayListItemsTwo {
+          text-align: center;
+          section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .titleName {
+              font-style: $title-font;
+              padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+            }
+            .sleepData {
+              font-size: 1rem;
+              font-style: $word-font;
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+    .sleepStatsDay:hover {
+      background: $primary-color;
+      border-color: whitesmoke;
+      .sleepStatsTitle {
+        border-bottom-color: whitesmoke;
+        .sleepStatsTitleDay {
+          color: whitesmoke;
+        }
+        .sleepStatsTitleDayName {
+          color: $quaternary-color;
+        }
+      }
+      .displaySleepStatsTextInfo {
+        color: whitesmoke;
+        .sleepDisplayListItems {
+          section {
+            .titleName {
+            }
+            .sleepData {
+              color: $quaternary-color;
+            }
+          }
+        }
+        .sleepDisplayListItemsTwo {
+          section {
+            .titleName {
+            }
+            .sleepData {
+              color: $quaternary-color;
+            }
+          }
         }
       }
     }
   }
 }
+// .sleepButton:hover {
+//     background: $primary-color;
+//     letter-spacing: 0.0625rem;
+//     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+//     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+//     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+//     transition: all 0.4s ease 0s;
+//   }
