@@ -155,7 +155,7 @@ namespace SleepTracker.Controllers
                 // Set the TimeStart to now
                 TimeStart = DateTime.Now,
                 // And make sure the TimeEnd is null
-                TimeEnd = null
+                // TimeEnd = null
             };
             // second request make a update field time end
             // third request update quality

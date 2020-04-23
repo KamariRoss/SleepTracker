@@ -10,13 +10,14 @@
     .sleepStatsDay {
       border: solid;
       margin: 1rem;
-      padding: 0.2rem;
+      padding: 0.5rem;
       .sleepStatsTitle {
         display: flex;
         border-bottom: solid;
         justify-content: space-evenly;
         .sleepStatsTitleDayName {
           color: $primary-color;
+          padding-left: 0.5rem;
         }
       }
       .displaySleepStatsTextInfo {
@@ -58,21 +59,28 @@
           }
         }
       }
+      .qualityRating {
+        text-align: center;
+        border-top: solid;
+        border-color: $quinary-color;
+        color: $primary-color;
+        padding-top: 0.2rem;
+      }
     }
     .sleepStatsDay:hover {
       background: $primary-color;
-      border-color: whitesmoke;
+      border-color: $tertiary-color;
       .sleepStatsTitle {
-        border-bottom-color: whitesmoke;
+        border-bottom-color: $tertiary-color;
         .sleepStatsTitleDay {
-          color: whitesmoke;
+          color: $tertiary-color;
         }
         .sleepStatsTitleDayName {
           color: $quaternary-color;
         }
       }
       .displaySleepStatsTextInfo {
-        color: whitesmoke;
+        color: $tertiary-color;
         .sleepDisplayListItems {
           section {
             .titleName {
@@ -91,6 +99,10 @@
             }
           }
         }
+      }
+      .qualityRating {
+        border-color: $tertiary-color;
+        color: $quaternary-color;
       }
     }
   }

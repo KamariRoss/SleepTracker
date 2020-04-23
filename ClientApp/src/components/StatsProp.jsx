@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../custom.scss'
+import moment from 'moment'
 
 const StatsProp = props => {
   const [sleeps, setSleeps] = useState([])
@@ -55,15 +56,20 @@ const StatsProp = props => {
         {sleeps.map((sleep, index) => (
           <section className="sleepStatsDay">
             <section className="sleepStatsTitle">
-              <h3 className="sleepStatsTitleDay">Day {index + 1}</h3>
+              <h3 className="sleepStatsTitleDay">
+                {/*Day {index + 1}*/}
+                {moment(sleep.timeStart).format('L')}
+              </h3>
               {'  '}
-              <h3 className="sleepStatsTitleDayName">{sleep.timeStart}</h3>
+              <h3 className="sleepStatsTitleDayName">
+                {moment(sleep.timeStart).format('dddd')}
+              </h3>
             </section>
             <section className="displaySleepStatsTextInfo">
               <section className="sleepDisplayListItems">
                 <section>
                   <h5 className="titleName">Sleep Quality</h5>
-                  <p className="sleepData">{sleep.qualityRating}/5</p>
+                  <p className="sleepData">{sleep.qualityRating}/4</p>
                 </section>
                 <section>
                   <h5 className="titleName">Hours Slept</h5>
@@ -73,13 +79,23 @@ const StatsProp = props => {
               <section className="sleepDisplayListItemsTwo">
                 <section>
                   <h5 className="titleName">Bed Time</h5>
-                  <p className="sleepData">{sleep.timeStart}</p>
+                  <p className="sleepData">
+                    {moment(sleep.timeStart).format('LT')}
+                  </p>
                 </section>
                 <section>
                   <h5 className="titleName">Wake up Time</h5>
-                  <p className="sleepData">{sleep.timeEnd}</p>
+                  <p className="sleepData">
+                    {moment(sleep.timeEnd).format('LT')}
+                  </p>
                 </section>
               </section>
+            </section>
+            <section className="qualityRating">
+              {' '}
+              <h3>
+                {convertQualityRatingNumberToDescription(sleep.qualityRating)}
+              </h3>
             </section>
           </section>
         ))}
