@@ -73,7 +73,7 @@ const StatsProp = props => {
                 </section>
                 <section>
                   <h5 className="titleName">Hours Slept</h5>
-                  <p className="sleepData">{sleep.hoursSlept}</p>
+                  <p className="sleepData">{sleep.hoursSlept.toFixed(2)}</p>
                 </section>
               </section>
               <section className="sleepDisplayListItemsTwo">

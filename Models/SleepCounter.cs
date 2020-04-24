@@ -7,7 +7,7 @@ namespace SleepTracker.Models
         public int Id { get; set; }
         public int QualityRating { get; set; }
         public DateTime TimeStart { get; set; }
-        public DateTime TimeEnd { get; set; }
+        public DateTime? TimeEnd { get; set; }
 
         public double HoursSlept
         {
@@ -17,10 +17,16 @@ namespace SleepTracker.Models
                 //succesfully subtract dates
                 // convert to hours
                 // TimeSpan value = (TimeEnd - TimeStart);
-                TimeSpan value = TimeEnd.Subtract(TimeStart);
-                var sleepTime = value.Hours + value.Minutes * 0.01;
-
-                return sleepTime;
+                if (TimeEnd != null)
+                {
+                    TimeSpan timeSpan = TimeEnd.Value.Subtract(TimeStart);
+                    var totalSleepMinutes = (timeSpan.Hours * 60) + (timeSpan.Minutes);
+                    // var hoursMinutes = (totalSleepSeconds / 3600);   
+                    var totalSleepHours = totalSleepMinutes / 60.0;
+                    return totalSleepHours;
+                }
+                else
+                { return 0; }
 
             }
         }
