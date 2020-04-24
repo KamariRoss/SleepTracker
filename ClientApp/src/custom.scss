@@ -5,17 +5,16 @@
 @import './components/SleepQuality.scss';
 @import './components/StatsDisplay.scss';
 @import './components/NavBarDesign.scss';
+@import './components/StatsAvg.scss';
 html {
   background-color: $quaternary-color;
-  min-height: 100vh;
-  min-width: 100vw;
 }
 
 div {
   background-color: $quaternary-color;
   color: $quinary-color;
-  min-height: 92vh;
-  min-width: 100vw;
+  min-height: 100vh;
+  min-width: 92vw;
 }
 .container {
   padding: 0;
