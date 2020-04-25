@@ -6,7 +6,7 @@ import moment from 'moment'
 
 const StatsAvg = () => {
   const [sleeps, setSleeps] = useState([])
-
+  console.log(setSleeps)
   const fetchSleeps = async () => {
     // get ALL the sleeps, well that is an Array
     const response = await axios.get(`/api/Sleep/thisweek`)
@@ -14,11 +14,31 @@ const StatsAvg = () => {
     // Set the sleeps variable to the array of all the sleeps we received
     setSleeps(allSleeps)
   }
-  //   useEffect(() => {
-  //     const total = sleeps.reduce((acc, item) => acc + parseInt(item.distance), 0)
-  //     const averageDistance = (total / sleeps.length).toFixed(2)
-  //     setStats({ total, averageDistance })
-  //   }, [sleeps])
+
+  const computeAvgQuality = () => {
+    const total = sleeps.reduce(function(a, b) {
+      return a + b.qualityRating
+    }, 0)
+    const avg = total / sleeps.length
+
+    return avg
+  }
+  const computeAvgHours = () => {
+    const total = sleeps.reduce(function(a, b) {
+      return a + b.hoursSlept
+    }, 0)
+    const avg = total / sleeps.length
+
+    return avg
+  }
+  const computeAvgTimeSlept = () => {
+    const total = sleeps.reduce(function(a, b) {
+      return a + b.timeStart
+    }, 0)
+    const avg = total / sleeps.length
+
+    return avg
+  }
 
   useEffect(() => {
     fetchSleeps()
@@ -42,7 +62,10 @@ const StatsAvg = () => {
             <h4>Average hours</h4>
           </section>
           <section className="avgSectionTotal">
-            <p>The average quality you slept are 8 hours</p>
+            <p>
+              The average quality you slept are{' '}
+              {computeAvgQuality(sleeps.qualityRating).toFixed(0)} hours
+            </p>
           </section>
         </section>
         <section className="avgSection">
@@ -50,7 +73,10 @@ const StatsAvg = () => {
             <h4>Average Quality</h4>
           </section>
           <section className="avgSectionTotal">
-            <p>The average hours you slept are 8 hours</p>
+            <p>
+              The average hours you slept are{' '}
+              {computeAvgHours(sleeps.hoursSlept).toFixed(0)} hours
+            </p>
           </section>
         </section>
         <section className="avgSection">
@@ -58,7 +84,10 @@ const StatsAvg = () => {
             <h4>Bed Times</h4>
           </section>
           <section className="avgSectionTotal">
-            <p>The average bed times you slept are 8 hours</p>
+            <p>
+              The average bed times you slept are{' '}
+              {computeAvgTimeSlept(sleeps.timeStart)} hours
+            </p>
           </section>
         </section>
         <section className="avgSection">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import Navbar from '../components/NavBar'
+import moment from 'moment'
 
 // display
 //
@@ -51,7 +52,7 @@ const Activate = props => {
         </h1>
         <h3>
           Time went to bed {''}
-          {sleep.timeStart}
+          {moment(sleep.timeStart).format('LLLL')}
         </h3>
         <h3 className="activateTime">Alarm 6:00a.m.</h3>
         <h3 className="activateTime"></h3>
