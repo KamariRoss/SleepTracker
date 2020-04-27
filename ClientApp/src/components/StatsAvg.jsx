@@ -94,7 +94,7 @@ const StatsAvg = () => {
     } else {
     }
 
-    return [averageHourBeforeBed, averageMinuteBeforeBed]
+    return [averageMinuteBeforeBedStrg, averageMinuteBeforeBed]
   }
 
   useEffect(() => {
