@@ -6,7 +6,7 @@ import moment from 'moment'
 
 const StatsAvg = () => {
   const [sleeps, setSleeps] = useState([])
-  console.log(setSleeps)
+
   const fetchSleeps = async () => {
     // get ALL the sleeps, well that is an Array
     const response = await axios.get(`/api/Sleep/thisweek`)
@@ -15,45 +15,100 @@ const StatsAvg = () => {
     setSleeps(allSleeps)
   }
 
+  const convertQualityRatingNumberToDescription = qualityRating => {
+    // if the number is 0 the word is No Sleep
+    if (qualityRating === 1) {
+      return 'No Sleep'
+    }
+    // if the number is 1 the word is Bad
+    else if (qualityRating === 2) {
+      return 'Bad'
+    }
+    // if the number is 2 the word is Okay
+    else if (qualityRating === 3) {
+      return 'Okay'
+    }
+    // if the number is 3 the word is Good
+    else if (qualityRating === 4) {
+      return 'Good'
+    }
+    // if the number is 4 the word is Excellent
+    else if (qualityRating === 5) {
+      return 'Excellent'
+    }
+  }
+
   const computeAvgQuality = () => {
-    const total = sleeps.reduce(function(a, b) {
-      return a + b.qualityRating
+    const total = sleeps.reduce(function(result, current) {
+      return result + current.qualityRating
     }, 0)
     const avg = total / sleeps.length
 
     return avg
   }
+
   const computeAvgHours = () => {
-    const total = sleeps.reduce(function(a, b) {
-      return a + b.hoursSlept
+    const total = sleeps.reduce(function(result, current) {
+      return result + current.hoursSlept
     }, 0)
     const avg = total / sleeps.length
 
     return avg
   }
-  const computeAvgTimeSlept = () => {
-    const total = sleeps.reduce(function(a, b) {
-      return a + b.timeStart
-    }, 0)
-    const avg = total / sleeps.length
 
-    return avg
+  const computeTypicalBedTime = () => {
+    const totalMinutesGoneByBeforeBedForAllTheDays = sleeps.reduce(function(
+      result,
+      current
+    ) {
+      // Convert the timeStart string to a date
+      const date = new Date(current.timeStart)
+
+      // What hour of the day is this? (0-23)
+      const hour = date.getHours()
+
+      // What minute of the hour is this (0-59)
+      const minute = date.getMinutes()
+
+      // How many minutes have gone by so far? (0-3599)
+      const minuteOfTheDay = hour * 60 + minute
+
+      // Add up the number of minutes gone by in the day
+      return result + minuteOfTheDay
+    },
+    0)
+    const averageNumberOfMinutesGoneByBeforeBed = Math.floor(
+      totalMinutesGoneByBeforeBedForAllTheDays / sleeps.length
+    )
+
+    // avg is the average hour + minute of the day we go to bed
+    const averageHourBeforeBed = Math.floor(
+      averageNumberOfMinutesGoneByBeforeBed / 60
+    )
+    const averageMinuteBeforeBed = averageNumberOfMinutesGoneByBeforeBed % 60
+
+    const averageMinuteBeforeBedStrg = averageMinuteBeforeBed.toString()
+    const zero = '0'
+    if ((averageMinuteBeforeBedStrg.length = 1)) {
+      zero.concat(averageMinuteBeforeBed)
+    } else {
+    }
+
+    return [averageHourBeforeBed, averageMinuteBeforeBed]
   }
 
   useEffect(() => {
     fetchSleeps()
   }, [])
 
-  //given the array of hours create an average for past 7 days
-  //given the array of quality create an average for past 7 days
-  //given the array of bed times create an average for past 7 days
-  //given the array of Wake Up create an average for past 7 days
+  // compute the typical hour and minute of bedtime
+  // computeTypicalBedTime returns an array so we
+  // save the hour and the minute.
+  const [hourOfBedTime, minuteOfBedTime] = computeTypicalBedTime()
 
-  //given the array of hours create an average for past total
-  //given the array of quality create an average for past total
-  //given the array of bed times create an average for past total
-  //given the array of Wake Up create an average for past total
-
+  console.log('hourOfBedTime', { hourOfBedTime }, 'minuteOfBedTime', {
+    minuteOfBedTime,
+  })
   return (
     <section className="avg">
       <section className="avgTable">
@@ -63,8 +118,11 @@ const StatsAvg = () => {
           </section>
           <section className="avgSectionTotal">
             <p>
-              The average quality you slept are{' '}
-              {computeAvgQuality(sleeps.qualityRating).toFixed(0)} hours
+              You have a quality sleep rating of{' '}
+              {convertQualityRatingNumberToDescription(
+                Math.floor(computeAvgQuality())
+              )}{' '}
+              with your average being {computeAvgQuality().toFixed(2)}/5
             </p>
           </section>
         </section>
@@ -85,8 +143,8 @@ const StatsAvg = () => {
           </section>
           <section className="avgSectionTotal">
             <p>
-              The average bed times you slept are{' '}
-              {computeAvgTimeSlept(sleeps.timeStart)} hours
+              The average bed times you slept are {hourOfBedTime}:
+              {minuteOfBedTime}
             </p>
           </section>
         </section>

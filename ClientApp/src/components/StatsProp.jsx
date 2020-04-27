@@ -23,23 +23,23 @@ const StatsProp = props => {
 
   const convertQualityRatingNumberToDescription = qualityRating => {
     // if the number is 0 the word is No Sleep
-    if (qualityRating === 0) {
+    if (qualityRating === 1) {
       return 'No Sleep'
     }
     // if the number is 1 the word is Bad
-    else if (qualityRating === 1) {
+    else if (qualityRating === 2) {
       return 'Bad'
     }
     // if the number is 2 the word is Okay
-    else if (qualityRating === 2) {
+    else if (qualityRating === 3) {
       return 'Okay'
     }
     // if the number is 3 the word is Good
-    else if (qualityRating === 3) {
+    else if (qualityRating === 4) {
       return 'Good'
     }
     // if the number is 4 the word is Excellent
-    else if (qualityRating === 4) {
+    else if (qualityRating === 5) {
       return 'Excellent'
     }
 
@@ -69,7 +69,7 @@ const StatsProp = props => {
               <section className="sleepDisplayListItems">
                 <section>
                   <h5 className="titleName">Sleep Quality</h5>
-                  <p className="sleepData">{sleep.qualityRating}/4</p>
+                  <p className="sleepData">{sleep.qualityRating}/5</p>
                 </section>
                 <section>
                   <h5 className="titleName">Hours Slept</h5>
