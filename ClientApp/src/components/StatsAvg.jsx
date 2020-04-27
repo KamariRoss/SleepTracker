@@ -87,14 +87,122 @@ const StatsAvg = () => {
     )
     const averageMinuteBeforeBed = averageNumberOfMinutesGoneByBeforeBed % 60
 
-    const averageMinuteBeforeBedStrg = averageMinuteBeforeBed.toString()
-    const zero = '0'
-    if ((averageMinuteBeforeBedStrg.length = 1)) {
-      zero.concat(averageMinuteBeforeBed)
-    } else {
-    }
+    // function minuteConverter(minute) {
+    //   // convert number to a string
+    //   // check to see if the string has one number
+    //   // if yes add 0 in the front of the number
+    //   // return number with zero
+    //   // else return number without zero
+    //   const intToString = minute.toString()
+    //   console.log(intToString)
 
-    return [averageMinuteBeforeBedStrg, averageMinuteBeforeBed]
+    //   if (minute < 10) {
+    //     return '0' + intToString
+    //   } else {
+    //     return intToString
+    //   }
+    // //
+    // const averageMinute = averageMinuteBeforeBed
+
+    const convertHoursAndMinutesToString = (hours, minutes) => {
+      let hoursString
+      // If it is midnight (0) or noon (12), then the hours are 12
+      if (hours == 0 || hours == 12) {
+        hoursString = '12'
+      }
+      // If it is 1am, 2am, ... 11am, the hours are just the hours
+      else if (hours < 12) {
+        hoursString = hours.toString()
+      }
+      // If it is 1pm (13) or 2pm (14) then the hours are the hours - 12
+      else if (hours > 12) {
+        hoursString = (hours - 12).toString()
+      }
+      let minutesString =
+        minutes < 10 ? '0' + minutes.toString() : minutes.toString()
+      let amOrPm = hours < 12 ? 'AM' : 'PM'
+      return `${hoursString}:${minutesString} ${amOrPm}`
+    }
+    return [
+      convertHoursAndMinutesToString(
+        averageHourBeforeBed,
+        averageMinuteBeforeBed
+      ),
+    ]
+  }
+  const computeTypicalWakeTime = () => {
+    const totalMinutesGoneByBeforeBedForAllTheDays = sleeps.reduce(function(
+      result,
+      current
+    ) {
+      // Convert the timeStart string to a date
+      const date = new Date(current.timeEnd)
+
+      // What hour of the day is this? (0-23)
+      const hour = date.getHours()
+
+      // What minute of the hour is this (0-59)
+      const minute = date.getMinutes()
+
+      // How many minutes have gone by so far? (0-3599)
+      const minuteOfTheDay = hour * 60 + minute
+
+      // Add up the number of minutes gone by in the day
+      return result + minuteOfTheDay
+    },
+    0)
+    const averageNumberOfMinutesGoneByBeforeBed = Math.floor(
+      totalMinutesGoneByBeforeBedForAllTheDays / sleeps.length
+    )
+
+    // avg is the average hour + minute of the day we go to bed
+    const averageHourBeforeBed = Math.floor(
+      averageNumberOfMinutesGoneByBeforeBed / 60
+    )
+    const averageMinuteBeforeBed = averageNumberOfMinutesGoneByBeforeBed % 60
+
+    // function minuteConverter(minute) {
+    //   // convert number to a string
+    //   // check to see if the string has one number
+    //   // if yes add 0 in the front of the number
+    //   // return number with zero
+    //   // else return number without zero
+    //   const intToString = minute.toString()
+    //   console.log(intToString)
+
+    //   if (minute < 10) {
+    //     return '0' + intToString
+    //   } else {
+    //     return intToString
+    //   }
+    // }
+    // const averageMinute = averageMinuteBeforeBed
+
+    const convertHoursAndMinutesToString = (hours, minutes) => {
+      let hoursString
+      // If it is midnight (0) or noon (12), then the hours are 12
+      if (hours == 0 || hours == 12) {
+        hoursString = '12'
+      }
+      // If it is 1am, 2am, ... 11am, the hours are just the hours
+      else if (hours < 12) {
+        hoursString = hours.toString()
+      }
+      // If it is 1pm (13) or 2pm (14) then the hours are the hours - 12
+      else if (hours > 12) {
+        hoursString = (hours - 12).toString()
+      }
+      let minutesString =
+        minutes < 10 ? '0' + minutes.toString() : minutes.toString()
+      let amOrPm = hours < 12 ? 'AM' : 'PM'
+      return `${hoursString}:${minutesString} ${amOrPm}`
+    }
+    return [
+      convertHoursAndMinutesToString(
+        averageHourBeforeBed,
+        averageMinuteBeforeBed
+      ),
+    ]
   }
 
   useEffect(() => {
@@ -104,11 +212,10 @@ const StatsAvg = () => {
   // compute the typical hour and minute of bedtime
   // computeTypicalBedTime returns an array so we
   // save the hour and the minute.
+
   const [hourOfBedTime, minuteOfBedTime] = computeTypicalBedTime()
 
-  console.log('hourOfBedTime', { hourOfBedTime }, 'minuteOfBedTime', {
-    minuteOfBedTime,
-  })
+  const [hourOfWakeTime, minuteOfWakeTime] = computeTypicalWakeTime()
   return (
     <section className="avg">
       <section className="avgTable">
@@ -143,7 +250,7 @@ const StatsAvg = () => {
           </section>
           <section className="avgSectionTotal">
             <p>
-              The average bed times you slept are {hourOfBedTime}:
+              The average bed times you slept are {hourOfBedTime}
               {minuteOfBedTime}
             </p>
           </section>
@@ -153,7 +260,10 @@ const StatsAvg = () => {
             <h4>Wake Up Times </h4>
           </section>
           <section className="avgSectionTotal">
-            <p>The average Wake Up you slept are 8 hours</p>
+            <p>
+              The average Wake Up you slept are {hourOfWakeTime}
+              {minuteOfWakeTime}
+            </p>
           </section>
         </section>
       </section>

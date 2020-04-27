@@ -1,8 +1,8 @@
-docker build -t SleepTracker-image .
+docker build -t sleepcounter-image .
 
-docker tag SleepTracker-image registry.heroku.com/SleepTracker/web
+docker tag sleepcounter-image registry.heroku.com/sleepcounter/web
 
 
-docker push registry.heroku.com/SleepTracker/web
+docker push registry.heroku.com/sleepcounter/web
 
-heroku container:release web -a SleepTracker
+heroku container:release web -a sleepcounter

@@ -31,6 +31,12 @@ export function Home() {
   } else {
     return (
       <>
+        <head>
+          <script
+            src="https://kit.fontawesome.com/870a1c4f57.js"
+            crossorigin="anonymous"
+          ></script>
+        </head>
         <div className="buttonContainer">
           <section>
             <button className="sleepButton" onClick={startTimer}>

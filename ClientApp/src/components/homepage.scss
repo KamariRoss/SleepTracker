@@ -19,6 +19,8 @@
     border: none;
     transition: all 0.4s ease 0s;
     font-size: 4rem;
+    font-family: $title-font;
+    font-weight: bold;
   }
   .sleepButton:hover {
     background: $primary-color;
@@ -52,7 +54,7 @@
 @media only screen and (max-width: 450px) {
   .buttonContainer {
     .sleepButton {
-      padding: 1.6rem;
+      padding: 0.5rem;
       border-radius: 0.3rem;
       font-size: 1.5rem;
     }

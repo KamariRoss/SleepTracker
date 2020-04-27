@@ -39,23 +39,23 @@ const SleepQuality = props => {
       <div className="sleepQualityPage">
         <h1 className="sleepQualityTitle">How was your sleep quality?</h1>
         <section className="sleepQualityButton">
-          <button className="simleyFace" onClick={event => setQuality(4)}>
+          <button className="simleyFace" onClick={event => setQuality(5)}>
             Excellent
           </button>
           <br />
-          <button className="simleyFace" onClick={event => setQuality(3)}>
+          <button className="simleyFace" onClick={event => setQuality(4)}>
             Good
           </button>
           <br />
-          <button className="simleyFace" onClick={event => setQuality(2)}>
+          <button className="simleyFace" onClick={event => setQuality(3)}>
             Okay
           </button>
           <br />
-          <button className="simleyFace" onClick={event => setQuality(1)}>
+          <button className="simleyFace" onClick={event => setQuality(2)}>
             Bad
           </button>
           <br />
-          <button className="simleyFace" onClick={event => setQuality(0)}>
+          <button className="simleyFace" onClick={event => setQuality(1)}>
             No Sleep
           </button>
         </section>

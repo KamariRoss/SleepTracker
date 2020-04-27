@@ -47,14 +47,14 @@ const Activate = props => {
   } else {
     return (
       <div className="activatePage">
-        <h1 className="activateTitle">
+        {/* <h1 className="activateTitle">
           Sleep in Progress for sleep number {props.match.params.SleepCounterId}
-        </h1>
+        </h1> */}
         <h3>
           Time went to bed {''}
           {moment(sleep.timeStart).format('LLLL')}
         </h3>
-        <h3 className="activateTime">Alarm 6:00a.m.</h3>
+        {/* <h3 className="activateTime">Alarm 6:00a.m.</h3> */}
         <h3 className="activateTime"></h3>
 
         <button className="stopButton" onClick={stopTimer}>
