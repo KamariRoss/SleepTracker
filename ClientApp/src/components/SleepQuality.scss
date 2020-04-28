@@ -5,11 +5,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
   .sleepQualityButton {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1rem;
+
     .simleyFace {
       color: #fff !important;
       text-transform: uppercase;
@@ -33,28 +35,11 @@
   }
 }
 
-// @media only screen and (max-width: 800px) {
-//   .sleepQualityPage {
-//     .simleyFace {
-//       padding: 2rem;
-//       border-radius: 3rem;
-//       font-size: 3rem;
-//     }
-//     .simleyFace:hover {
-//       background: $primary-color;
-//       letter-spacing: 0.0525rem;
-//     }
-//   }
-// }
-// @media only screen and (max-width: 450px) {
-//   .sleepQualityPage {
-//     .simleyFace {
-//       padding: 1.6rem;
-//       border-radius: 3rem;
-//       font-size: 1.5rem;
-//     }
-//     .simleyFace:hover {
-//       letter-spacing: 0.02125rem;
-//     }
-//   }
-// }
+@media only screen and (max-width: 810px) {
+  .sleepQualityPage {
+    .sleepQualityButton {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

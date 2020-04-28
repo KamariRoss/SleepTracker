@@ -15,11 +15,11 @@ const NavBar = () => {
             Stats
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link className="navItem" to="*">
             Pref
           </Link>
-        </li>
+        </li> */}
       </nav>
     </section>
   )
