@@ -33,7 +33,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-style: $title-font;
         .sleepDisplayListItems {
           border-right: solid;
           text-align: center;
@@ -43,11 +42,11 @@
             justify-content: center;
             .titleName {
               font-family: $title-font;
-              padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+              padding: 0.5rem 0.5rem 0.5rem 0.5rem;
             }
             .sleepData {
               font-size: 1rem;
-              font-style: $word-font;
+              font-family: $word-font;
               color: $primary-color;
             }
           }
@@ -59,12 +58,12 @@
             flex-direction: column;
             justify-content: center;
             .titleName {
-              font-style: $title-font;
+              font-family: $title-font;
               padding: 0.5rem 0.5rem 0.5rem 0.5rem;
             }
             .sleepData {
               font-size: 1rem;
-              font-style: $word-font;
+              font-family: $word-font;
               color: $primary-color;
             }
           }
@@ -75,7 +74,11 @@
         border-top: solid;
         border-color: $quinary-color;
         color: $primary-color;
-        padding-top: 0.2rem;
+        font-family: $title-font;
+        h3 {
+          padding-top: 0.5rem;
+          margin: 0rem;
+        }
       }
     }
     .sleepStatsDay:hover {

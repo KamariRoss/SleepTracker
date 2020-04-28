@@ -4,6 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .avgTitle {
+    font-family: $title-font;
+  }
   .avgTable {
     margin: 2rem 8rem 3rem 8rem;
     border: solid;
@@ -11,15 +14,16 @@
 
     .avgSection {
       display: flex;
-      justify-content: center;
       align-items: center;
 
       .avgSectionTitle {
+        font-family: $title-font;
       }
       .avgSectionTotal {
         margin-top: 0.8rem;
         padding: 0rem;
         padding-left: 1rem;
+        font-family: $word-font;
       }
     }
   }

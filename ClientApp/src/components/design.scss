@@ -5,4 +5,9 @@ $quaternary-color: hsl(231, 98%, 18%);
 $quinary-color: hsla(183, 100%, 75%, 0.822);
 $senary-color: hsla(180, 100%, 85%, 0.822);
 $title-font: 'Futura';
-$word-font: 'Lucida Console', Monaco, monospace;
+$word-font: 'Lucida Console', 'Monaco', monospace;
+$gradient-image: linear-gradient(
+  hsla(217, 95%, 34%, 0.822),
+  hsla(231, 96%, 29%, 0.822),
+  hsla(231, 98%, 18%, 0.822)
+);

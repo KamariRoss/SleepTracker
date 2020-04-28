@@ -219,49 +219,47 @@ const StatsAvg = () => {
   return (
     <section className="avg">
       <section className="avgTable">
+        <h3 className="avgTitle">Weekly Averages</h3>
+
         <section className="avgSection">
           <section className="avgSectionTitle">
-            <h4>Average hours</h4>
+            <h4>Quality</h4>
           </section>
           <section className="avgSectionTotal">
             <p>
-              You have a quality sleep rating of{' '}
               {convertQualityRatingNumberToDescription(
                 Math.floor(computeAvgQuality())
               )}{' '}
-              with your average being {computeAvgQuality().toFixed(2)}/5
+              {computeAvgQuality().toFixed(2)}/5
             </p>
           </section>
         </section>
         <section className="avgSection">
           <section className="avgSectionTitle">
-            <h4>Average Quality</h4>
+            <h4>Hours</h4>
           </section>
           <section className="avgSectionTotal">
-            <p>
-              The average hours you slept are{' '}
-              {computeAvgHours(sleeps.hoursSlept).toFixed(0)} hours
-            </p>
+            <p>{computeAvgHours(sleeps.hoursSlept).toFixed(0)} </p>
           </section>
         </section>
         <section className="avgSection">
           <section className="avgSectionTitle">
-            <h4>Bed Times</h4>
+            <h4>Bed Time</h4>
           </section>
           <section className="avgSectionTotal">
             <p>
-              The average bed times you slept are {hourOfBedTime}
+              {hourOfBedTime}
               {minuteOfBedTime}
             </p>
           </section>
         </section>
         <section className="avgSection">
           <section className="avgSectionTitle">
-            <h4>Wake Up Times </h4>
+            <h4>Wake Up Time </h4>
           </section>
           <section className="avgSectionTotal">
             <p>
-              The average Wake Up you slept are {hourOfWakeTime}
+              {hourOfWakeTime}
               {minuteOfWakeTime}
             </p>
           </section>
