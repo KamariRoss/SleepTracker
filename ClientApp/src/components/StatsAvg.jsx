@@ -18,7 +18,7 @@ const StatsAvg = () => {
   const convertQualityRatingNumberToDescription = qualityRating => {
     // if the number is 0 the word is No Sleep
     if (qualityRating === 1) {
-      return 'No Sleep'
+      return 'Restless Sleep'
     }
     // if the number is 1 the word is Bad
     else if (qualityRating === 2) {

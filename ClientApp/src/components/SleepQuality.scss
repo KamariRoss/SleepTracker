@@ -12,7 +12,7 @@
     align-items: center;
     margin: 1rem;
 
-    .simleyFace {
+    .qualityRatingOption {
       color: #fff !important;
       text-transform: uppercase;
       text-decoration: none;
@@ -24,7 +24,7 @@
       font-size: 2rem;
       margin-right: 0.5rem;
     }
-    .simleyFace:hover {
+    .qualityRatingOption:hover {
       background: $primary-color;
       letter-spacing: 0.0625rem;
       -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
