@@ -51,7 +51,7 @@ const Activate = props => {
           Sleep in Progress for sleep number {props.match.params.SleepCounterId}
         </h1> */}
         <h2>
-          Time went to bed {''}
+          Bed Time Date {''}
           {moment(sleep.timeStart).format('LLLL')}
         </h2>
         {/* <h3 className="activateTime">Alarm 6:00a.m.</h3> */}

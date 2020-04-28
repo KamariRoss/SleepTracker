@@ -7,19 +7,20 @@
   flex-direction: column;
   .sleepQualityButton {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
     .simleyFace {
-      display: flex;
-      justify-content: center;
       color: #fff !important;
       text-transform: uppercase;
       text-decoration: none;
-      background: $quinary-color;
+      background-image: $blueGradient-image;
       padding: 1rem;
       border-radius: 3rem;
       border: none;
       transition: all 0.4s ease 0s;
       font-size: 2rem;
+      margin-right: 0.5rem;
     }
     .simleyFace:hover {
       background: $primary-color;
@@ -32,28 +33,28 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
-  .sleepQualityPage {
-    .simleyFace {
-      padding: 2rem;
-      border-radius: 3rem;
-      font-size: 3rem;
-    }
-    .simleyFace:hover {
-      background: $primary-color;
-      letter-spacing: 0.0525rem;
-    }
-  }
-}
-@media only screen and (max-width: 450px) {
-  .sleepQualityPage {
-    .simleyFace {
-      padding: 1.6rem;
-      border-radius: 3rem;
-      font-size: 1.5rem;
-    }
-    .simleyFace:hover {
-      letter-spacing: 0.02125rem;
-    }
-  }
-}
+// @media only screen and (max-width: 800px) {
+//   .sleepQualityPage {
+//     .simleyFace {
+//       padding: 2rem;
+//       border-radius: 3rem;
+//       font-size: 3rem;
+//     }
+//     .simleyFace:hover {
+//       background: $primary-color;
+//       letter-spacing: 0.0525rem;
+//     }
+//   }
+// }
+// @media only screen and (max-width: 450px) {
+//   .sleepQualityPage {
+//     .simleyFace {
+//       padding: 1.6rem;
+//       border-radius: 3rem;
+//       font-size: 1.5rem;
+//     }
+//     .simleyFace:hover {
+//       letter-spacing: 0.02125rem;
+//     }
+//   }
+// }

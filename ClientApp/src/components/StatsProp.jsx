@@ -50,8 +50,8 @@ const StatsProp = props => {
 
   return (
     <section className="displaySleepStats">
-      <h1>There are {sleeps.length} sleeps to look at</h1>
-      <h2> Here is your current weekly progress</h2>
+      {/* <h1>There are {sleeps.length} sleeps to look at</h1> */}
+      <h1> Current Progress</h1>
       <section className="row">
         {sleeps.map((sleep, index) => (
           <section className="sleepStatsDay">
@@ -114,6 +114,7 @@ const StatsProp = props => {
           <li className="statspage">{sleep.timeEnd}</li>
         ))}
       </ul> */}
+      <hr />{' '}
     </section>
   )
 }

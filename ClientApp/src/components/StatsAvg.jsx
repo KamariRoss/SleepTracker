@@ -227,10 +227,11 @@ const StatsAvg = () => {
           </section>
           <section className="avgSectionTotal">
             <p>
+              {computeAvgQuality().toFixed(2)}/5 &#40;
               {convertQualityRatingNumberToDescription(
                 Math.floor(computeAvgQuality())
-              )}{' '}
-              {computeAvgQuality().toFixed(2)}/5
+              )}
+              &#41;
             </p>
           </section>
         </section>

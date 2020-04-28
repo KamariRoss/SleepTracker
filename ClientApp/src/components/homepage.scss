@@ -8,22 +8,21 @@
   flex-direction: column;
   .sleepButton {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: $quinary-color;
-    padding: 4rem;
+    background-image: $blueGradient-image;
+    padding: 2rem;
     border-radius: 1rem;
-    display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-family: $title-font;
-    font-weight: bold;
+    margin: 2rem;
   }
   .sleepButton:hover {
-    background: $primary-color;
+    background: $greenGradient-image;
     letter-spacing: 0.0625rem;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -38,28 +37,28 @@
   border-color: #1861ac;
 }
 
-@media only screen and (max-width: 800px) {
-  .buttonContainer {
-    .sleepButton {
-      padding: 2rem;
-      border-radius: 0.8rem;
-      font-size: 3rem;
-    }
-    .sleepButton:hover {
-      background: $primary-color;
-      letter-spacing: 0.0525rem;
-    }
-  }
-}
-@media only screen and (max-width: 450px) {
-  .buttonContainer {
-    .sleepButton {
-      padding: 0.5rem;
-      border-radius: 0.3rem;
-      font-size: 1rem;
-    }
-    .sleepButton:hover {
-      letter-spacing: 0.02125rem;
-    }
-  }
-}
+// @media only screen and (max-width: 800px) {
+//   .buttonContainer {
+//     .sleepButton {
+//       padding: 2rem;
+//       border-radius: 0.8rem;
+//       font-size: 3rem;
+//     }
+//     .sleepButton:hover {
+//       background: $primary-color;
+//       letter-spacing: 0.0525rem;
+//     }
+//   }
+// }
+// @media only screen and (max-width: 450px) {
+//   .buttonContainer {
+//     .sleepButton {
+//       padding: 1rem;
+//       border-radius: 0.5rem;
+//       font-size: 2rem;
+//     }
+//     .sleepButton:hover {
+//       letter-spacing: 0.02125rem;
+//     }
+//   }
+// }

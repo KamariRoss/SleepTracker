@@ -1,8 +1,8 @@
-$primary-color: hsla(160, 100%, 50%, 0.924);
+$primary-color: hsla(160, 100%, 50%, 0.911);
 $secondary-color: hsla(151, 100%, 89%, 0.822);
-$tertiary-color: hsla(223, 100%, 94%, 0.822);
+$tertiary-color: hsla(223, 100%, 94%, 0.931);
 $quaternary-color: hsl(231, 98%, 18%);
-$quinary-color: hsla(183, 100%, 75%, 0.822);
+$quinary-color: hsla(183, 100%, 75%, 0.931);
 $senary-color: hsla(180, 100%, 85%, 0.822);
 $title-font: 'Futura';
 $word-font: 'Lucida Console', 'Monaco', monospace;
@@ -10,4 +10,12 @@ $gradient-image: linear-gradient(
   hsla(217, 95%, 34%, 0.822),
   hsla(231, 96%, 29%, 0.822),
   hsla(231, 98%, 18%, 0.822)
+);
+$greenGradient-image: linear-gradient(
+  hsla(160, 96%, 54%, 0.952),
+  hsla(160, 99%, 41%, 0.959)
+);
+$blueGradient-image: linear-gradient(
+  hsla(183, 100%, 75%, 0.945),
+  hsl(183, 48%, 58%)
 );

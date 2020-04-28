@@ -3,11 +3,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1,
+
   h2,
   h4 {
     font-family: $title-font;
     font-weight: bold;
+  }
+  h1 {
+    color: $primary-color;
   }
 
   .row {
@@ -119,5 +122,10 @@
         color: $quaternary-color;
       }
     }
+  }
+  hr {
+    border: solid;
+    border-color: $primary-color;
+    width: 70%;
   }
 }

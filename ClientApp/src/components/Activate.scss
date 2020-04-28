@@ -17,16 +17,17 @@
     color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: $quinary-color;
+    background-image: $blueGradient-image;
     padding: 2rem;
     border-radius: 1rem;
     border: none;
     transition: all 0.4s ease 0s;
-    font-size: 4rem;
     font-family: $word-font;
+    margin: 1rem;
+    font-weight: bold;
   }
   .stopButton:hover {
-    background: $primary-color;
+    background: $greenGradient-image;
     letter-spacing: 0.0625rem;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -35,29 +36,29 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
-  .buttonContainer {
-    .stopButton {
-      padding: 2rem;
-      border-radius: 0.8rem;
-      font-size: 3rem;
-    }
-    .stopButton:hover {
-      background: $primary-color;
-      letter-spacing: 0.0525rem;
-    }
-  }
-}
+// @media only screen and (max-width: 800px) {
+//   .buttonContainer {
+//     .stopButton {
+//       padding: 2rem;
+//       border-radius: 0.8rem;
+//       font-size: 3rem;
+//     }
+//     .stopButton:hover {
+//       background: $primary-color;
+//       letter-spacing: 0.0525rem;
+//     }
+//   }
+// }
 
-@media only screen and (max-width: 450px) {
-  .buttonContainer {
-    .stopButton {
-      padding: 1.6rem;
-      border-radius: 0.3rem;
-      font-size: 1.5rem;
-    }
-    .stopButton:hover {
-      letter-spacing: 0.02125rem;
-    }
-  }
-}
+// @media only screen and (max-width: 450px) {
+//   .buttonContainer {
+//     .stopButton {
+//       padding: 1rem;
+//       border-radius: 0.5rem;
+//       font-size: 2rem;
+//     }
+//     .stopButton:hover {
+//       letter-spacing: 0.02125rem;
+//     }
+//   }
+// }

@@ -9,6 +9,7 @@ const Stats = () => {
     <>
       <div>
         <StatsProp />
+
         {/* <section>This is the graph</section>
         <section>This is the stat averages</section> */}
         <StatsAv />
