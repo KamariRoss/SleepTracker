@@ -51,7 +51,7 @@ const StatsProp = props => {
   return (
     <section className="displaySleepStats">
       {/* <h1>There are {sleeps.length} sleeps to look at</h1> */}
-      <h1> Current Progress</h1>
+      <h1> Todays Date is {moment().format('LL')} </h1>
       <section className="row">
         {sleeps.map((sleep, index) => (
           <section className="sleepStatsDay">
