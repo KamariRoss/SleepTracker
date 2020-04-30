@@ -51,7 +51,14 @@ const StatsProp = props => {
   return (
     <section className="displaySleepStats">
       {/* <h1>There are {sleeps.length} sleeps to look at</h1> */}
-      <h1> Todays Date is {moment.utc().local.format('LL')} </h1>
+      <h1>
+        {' '}
+        Todays Date is{' '}
+        {moment
+          .utc()
+          .local()
+          .format('LL')}{' '}
+      </h1>
       <section className="row">
         {sleeps.map((sleep, index) => (
           <section className="sleepStatsDay">
@@ -86,13 +93,19 @@ const StatsProp = props => {
                 <section>
                   <h5 className="titleName">Bed Time</h5>
                   <p className="sleepData">
-                    {moment.utc(sleep.timeStart).local.format('LT')}
+                    {moment
+                      .utc(sleep.timeStart)
+                      .local()
+                      .format('LT')}
                   </p>
                 </section>
                 <section>
                   <h5 className="titleName">Wake up Time</h5>
                   <p className="sleepData">
-                    {moment.utc(sleep.timeEnd).local.format('LT')}
+                    {moment
+                      .utc(sleep.timeEnd)
+                      .local()
+                      .format('LT')}
                   </p>
                 </section>
               </section>
