@@ -30,7 +30,7 @@ namespace SleepTracker.Controllers
         [HttpGet("thisweek")]
         public async Task<ActionResult<IEnumerable<SleepCounter>>> GetSleepCountersForThisWeek()
         {
-            var sevendaysago = DateTime.Now.AddDays(-7);
+            var sevendaysago = DateTime.UtcNow.AddDays(-7);
             // TODO, Add a `Where` statement to limit which SleepCounters we return
             //Where the past seven days including today
             // The days have to be equal to or less than six days old
@@ -67,7 +67,7 @@ namespace SleepTracker.Controllers
 
             // Otherwise, set the value of the found sleepCounter TimeEnd to the current time
             _context.Entry(sleepCounter).State = EntityState.Modified;
-            sleepCounter.TimeEnd = DateTime.Now;
+            sleepCounter.TimeEnd = DateTime.UtcNow;
 
             // Save that sleepCounter
             try
@@ -153,7 +153,7 @@ namespace SleepTracker.Controllers
             SleepCounter sleepCounter = new SleepCounter()
             {
                 // Set the TimeStart to now
-                TimeStart = DateTime.Now,
+                TimeStart = DateTime.UtcNow,
                 // And make sure the TimeEnd is null
                 TimeEnd = null
             };

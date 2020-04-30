@@ -52,7 +52,10 @@ const Activate = props => {
         </h1> */}
         <h2>
           Bed Time Date {''}
-          {moment(sleep.timeStart).format('LLLL')}
+          {moment
+            .utc(sleep.timeStart)
+            .local()
+            .format('LLLL')}
         </h2>
         {/* <h3 className="activateTime">Alarm 6:00a.m.</h3> */}
 
